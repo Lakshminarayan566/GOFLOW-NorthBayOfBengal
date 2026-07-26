@@ -1,0 +1,69 @@
+import os
+import glob
+import numpy as np
+import pandas as pd
+
+FRONT_DIR = "outputs/daily_fronts"
+OUT_DIR = "outputs/statistics"
+
+os.makedirs(OUT_DIR, exist_ok=True)
+
+front_files = sorted(glob.glob(os.path.join(FRONT_DIR, 
+"front_*.npy")))
+log_files   = sorted(glob.glob(os.path.join(FRONT_DIR, 
+"log_front_*.npy")))
+
+records = []
+
+print(f"Found {len(front_files)} front files")
+
+for front_file, log_file in zip(front_files, log_files):
+
+    timestamp = os.path.basename(front_file)\
+                  .replace("front_", "")\
+                  .replace(".npy", "")
+
+    front = np.load(front_file)
+    log_front = np.load(log_file)
+
+    valid_pixels = np.isfinite(front).sum()
+    total_pixels = front.size
+
+    cloud_pixels = total_pixels - valid_pixels
+    cloud_percent = (cloud_pixels / total_pixels) * 100
+
+    record = {
+        "timestamp": timestamp,
+
+        "front_min": np.nanmin(front),
+        "front_max": np.nanmax(front),
+        "front_mean": np.nanmean(front),
+
+        "front_p95": np.nanpercentile(front,95),
+        "front_p99": np.nanpercentile(front,99),
+
+        "log_min": np.nanmin(log_front),
+        "log_max": np.nanmax(log_front),
+        "log_mean": np.nanmean(log_front),
+
+        "valid_pixels": valid_pixels,
+        "cloud_percent": cloud_percent
+    }
+
+    records.append(record)
+
+df = pd.DataFrame(records)
+
+csv_path = os.path.join(
+    OUT_DIR,
+    "dec2022_front_statistics.csv"
+)
+
+df.to_csv(csv_path,index=False)
+
+print("\n===================================")
+print("DECEMBER STATISTICS CREATED")
+print("===================================")
+print(df.head())
+print(f"\nSaved: {csv_path}")
+
