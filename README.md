@@ -142,9 +142,21 @@ Each model experiment evaluated validation snapshots for **December 31, 2022, 15
   <img src="outputs/baseline/prediction_compare_pub_9km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
 </p>
 * **Figure 6.3 — GOFLOW V2 (2 km) Prediction**: Illustrates predictions generated purely from temporal sequences of log front magnitudes without wind components.
+<p align="center">
+  <img src="outputs/version2/comparison_pub_2km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 * **Figure 6.4 — GOFLOW V2 (9 km) Prediction**: Depicts severe spatial error accumulation and degraded correlation due to low resolution combined with missing wind forcing.
+<p align="center">
+  <img src="outputs/version2/comparison_pub_9km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 * **Figure 6.5 — GOFLOW V3 (2 km) Prediction**: Demonstrates near-perfect alignment with actual HYCOM current speed structures and minimal absolute prediction error.
+<p align="center">
+  <img src="outputs/version3/comparison_pub_2km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 * **Figure 6.6 — GOFLOW V3 (9 km) Prediction**: Displays strong structural recovery of major current boundaries despite coarse 9 km SST inputs.
+<p align="center">
+  <img src="outputs/version3/comparison_pub_9km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 
 ---
 
