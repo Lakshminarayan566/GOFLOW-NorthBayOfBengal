@@ -134,7 +134,13 @@ All six models were trained under unified configuration settings:
 Each model experiment evaluated validation snapshots for **December 31, 2022, 15:00 UTC**:
 
 * **Figure 6.1 — Baseline (2 km) Prediction**: Shows UNet validation analysis comparing (A) Actual HYCOM Surface Currents, (B) Baseline Prediction Pattern, and (C) Absolute Prediction Error ($0.00 - 0.09\text{ m/s}$).
+* <p align="center">
+  <img src="outputs/baseline/prediction_compare_pub_2km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 * **Figure 6.2 — Baseline (9 km) Prediction**: Evaluates resolution degraded baseline output against actual HYCOM currents.
+<p align="center">
+  <img src="outputs/baseline/prediction_compare_pub_9km_20221231150000.png" alt="Baseline 2 km Prediction Comparison" width="900">
+</p>
 * **Figure 6.3 — GOFLOW V2 (2 km) Prediction**: Illustrates predictions generated purely from temporal sequences of log front magnitudes without wind components.
 * **Figure 6.4 — GOFLOW V2 (9 km) Prediction**: Depicts severe spatial error accumulation and degraded correlation due to low resolution combined with missing wind forcing.
 * **Figure 6.5 — GOFLOW V3 (2 km) Prediction**: Demonstrates near-perfect alignment with actual HYCOM current speed structures and minimal absolute prediction error.
